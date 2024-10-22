@@ -1,6 +1,8 @@
 from typing import List
 import unittest
+import sys
 
+sys.tracebacklimit = 0
 
 # non recursive version
 # class Solution:

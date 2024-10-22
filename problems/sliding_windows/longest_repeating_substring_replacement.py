@@ -3,8 +3,11 @@ from collections import defaultdict
 from re import L
 from typing import List
 import unittest
+import sys
 
-k = 2
+sys.tracebacklimit = 0
+
+# k = 2
 # max_substr = 0
 # l = 0
 

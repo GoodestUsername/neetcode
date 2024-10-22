@@ -2,6 +2,9 @@ from collections import defaultdict
 from re import X
 from typing import List
 import unittest
+import sys
+
+sys.tracebacklimit = 0
 
 
 class Solution:

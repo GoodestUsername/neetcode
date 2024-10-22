@@ -1,6 +1,9 @@
 import enum
 from typing import List
 import unittest
+import sys
+
+sys.tracebacklimit = 0
 
 
 class Solution:

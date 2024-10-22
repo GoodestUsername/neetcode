@@ -1,6 +1,9 @@
 from math import floor
 
 import unittest
+import sys
+
+sys.tracebacklimit = 0
 
 
 class Solution:
