@@ -2,7 +2,7 @@ from collections import defaultdict
 from typing import Any, List, Tuple
 
 
-def b_search(nums: List[Tuple[float, Any]], target: int) -> int:
+def b_search_or_smallest(nums: List[Tuple[float, Any]], target: int) -> int:
     l, r = 0, len(nums) - 1
 
     while l <= r:
@@ -13,6 +13,9 @@ def b_search(nums: List[Tuple[float, Any]], target: int) -> int:
             l = m + 1
         else:
             return m
+
+    if l == 0:
+        return 0
     return l - 1
 
 
@@ -25,7 +28,7 @@ class TimeMap:
         self._map[key].append((timestamp, value))
 
     def get(self, key: str, timestamp: int) -> str:
-        location = b_search(self._map[key], timestamp)
+        location = b_search_or_smallest(self._map[key], timestamp)
         if location == -1:
             if len(self._map[key]) and timestamp >= self._map[key][-1][0]:
                 return self._map[key][-1][1]
