@@ -71,13 +71,13 @@ class tests(unittest.TestCase):
 
         self.assertEqual(answer, expected)
 
-    def test_reverse(self):
+    def test_even(self):
         self.e(
             args=ListNode(2, ListNode(4, ListNode(6, ListNode(8, None)))),
             expected=[2, 8, 4, 6],
         )
 
-    def test_empty(self):
+    def test_odd(self):
         self.e(
             args=ListNode(2, ListNode(4, ListNode(6, ListNode(8, ListNode(10, None))))),
             expected=[2, 10, 4, 8, 6],
