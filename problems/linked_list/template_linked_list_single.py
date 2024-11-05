@@ -73,14 +73,8 @@ class tests(unittest.TestCase):
         )
 
     def test_cycle(self):
-        l4 = ListNode(4)
-        l3 = ListNode(3, l4)
-        l2 = ListNode(2, l3)
-        l1 = ListNode(1, l2)
-        l4.next = l1
-
         self.e(
-            args=l1,
+            args=ListNode.from_List([1, 2, 3]),
             expected=True,
         )
 
