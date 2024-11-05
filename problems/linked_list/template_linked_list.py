@@ -43,7 +43,10 @@ class Node:
 
 class Solution:
     def run(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
-        return None
+        head = Node(0, None)
+        node = head
+
+        return head
 
 
 class tests(unittest.TestCase):
