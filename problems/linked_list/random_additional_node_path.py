@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+from typing import Optional
 
 
 # TODO: Look at figure out 1 pass and space optimization
