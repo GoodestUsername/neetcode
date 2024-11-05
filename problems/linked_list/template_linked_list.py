@@ -3,8 +3,8 @@ from typing import List, Optional
 import unittest
 
 
-class Node:
-    def __init__(self, x: int, next: "Node" = None):
+class ListNode:
+    def __init__(self, x: int, next: "ListNode" = None):
         self.val = int(x)
         self.next = next
 
@@ -13,11 +13,11 @@ class Node:
         if len(nums) == 0:
             return None
 
-        head = Node(nums[0], None)
+        head = ListNode(nums[0], None)
         node = head
 
         for i in range(1, len(nums)):
-            node.next = Node(nums[i], None)
+            node.next = ListNode(nums[i], None)
             node = node.next
 
         return head
@@ -42,8 +42,8 @@ class Node:
 
 
 class Solution:
-    def run(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
-        head = Node(0, None)
+    def run(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        head = ListNode(0, None)
         node = head
 
         return head
@@ -68,8 +68,10 @@ class tests(unittest.TestCase):
 
     def test_dup(self):
         self.e(
-            args=dict(l1=Node.from_List([1, 2, 3]), l2=Node.from_List([4, 5, 6])),
-            expected=Node.from_List([5, 7, 9]),
+            args=dict(
+                l1=ListNode.from_List([1, 2, 3]), l2=ListNode.from_List([4, 5, 6])
+            ),
+            expected=ListNode.from_List([5, 7, 9]),
         )
 
 

@@ -3,8 +3,8 @@ from typing import List, Optional
 import unittest
 
 
-class Node:
-    def __init__(self, x: int, next: "Node" = None):
+class ListNode:
+    def __init__(self, x: int, next: "ListNode" = None):
         self.val = int(x)
         self.next = next
 
@@ -13,11 +13,11 @@ class Node:
         if len(nums) == 0:
             return None
 
-        head = Node(nums[0], None)
+        head = ListNode(nums[0], None)
         node = head
 
         for i in range(1, len(nums)):
-            node.next = Node(nums[i], None)
+            node.next = ListNode(nums[i], None)
             node = node.next
 
         return head
@@ -42,8 +42,8 @@ class Node:
 
 
 class Solution:
-    def run(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
-        head = Node(0)
+    def run(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        head = ListNode(0)
         node = head
         carry = False
         while l1 or l2:
@@ -61,7 +61,7 @@ class Solution:
 
             last_digit = cur_total % 10
 
-            node.next = Node(last_digit)
+            node.next = ListNode(last_digit)
             node = node.next
 
             if l1:
@@ -70,7 +70,7 @@ class Solution:
                 l2 = l2.next
 
         if carry:
-            node.next = Node(1)
+            node.next = ListNode(1)
 
         return head.next
 
@@ -94,14 +94,16 @@ class tests(unittest.TestCase):
 
     def test_no_carry(self):
         self.e(
-            args=dict(l1=Node.from_List([1, 2, 3]), l2=Node.from_List([4, 5, 6])),
-            expected=Node.from_List([5, 7, 9]),
+            args=dict(
+                l1=ListNode.from_List([1, 2, 3]), l2=ListNode.from_List([4, 5, 6])
+            ),
+            expected=ListNode.from_List([5, 7, 9]),
         )
 
     def test_carry(self):
         self.e(
-            args=dict(l1=Node.from_List([9]), l2=Node.from_List([9])),
-            expected=Node.from_List([8, 1]),
+            args=dict(l1=ListNode.from_List([9]), l2=ListNode.from_List([9])),
+            expected=ListNode.from_List([8, 1]),
         )
 
 
@@ -110,7 +112,7 @@ if __name__ == "__main__":
 
 
 # Definition for singly-linked list.
-# class ListNode:
+# class ListListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
@@ -118,9 +120,9 @@ if __name__ == "__main__":
 # looks cleaner
 # class Solution:
 #     def addTwoNumbers(
-#         self, l1: Optional[ListNode], l2: Optional[ListNode]
-#     ) -> Optional[ListNode]:
-#         dummy = ListNode()
+#         self, l1: Optional[ListListNode], l2: Optional[ListListNode]
+#     ) -> Optional[ListListNode]:
+#         dummy = ListListNode()
 #         cur = dummy
 
 #         carry = 0
@@ -132,7 +134,7 @@ if __name__ == "__main__":
 #             val = v1 + v2 + carry
 #             carry = val // 10
 #             val = val % 10
-#             cur.next = ListNode(val)
+#             cur.next = ListListNode(val)
 
 #             # update ptrs
 #             cur = cur.next
