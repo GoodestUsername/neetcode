@@ -18,15 +18,17 @@ class TreeNode:
         root = TreeNode(nums[0])
         q = [root]
         i = 1
-        while i < len(nums):
+        while i < len(nums) and len(q):
             curr = q.pop(0)
             if i < len(nums):
-                curr.left = TreeNode(nums[i])
-                q.append(curr.left)
+                if nums[i] != None:
+                    curr.left = TreeNode(nums[i])
+                    q.append(curr.left)
                 i += 1
             if i < len(nums):
-                curr.right = TreeNode(nums[i])
-                q.append(curr.right)
+                if nums[i] != None:
+                    curr.right = TreeNode(nums[i])
+                    q.append(curr.right)
                 i += 1
         return root
 
