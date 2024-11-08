@@ -5,12 +5,6 @@ from typing import List
 import unittest
 
 
-class Interval(object):
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
-
-
 # first attempt, O(n"2)
 class Solution:
     def run(self, digits: List[int]) -> bool:
